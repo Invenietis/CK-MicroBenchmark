@@ -1,0 +1,13 @@
+{
+  "profiles": {
+    "GUI Net461": {
+      "commandName": "Executable",
+      "executablePath": "%USERPROFILE%\\.nuget\\packages\\nunit.runners.net4\\2.6.4\\tools\\nunit.exe",
+      "commandLineArgs": "CK.MicroBenchmark.Tests.dll"
+    },
+    "NUnitLite": {
+      "commandName": "Project",
+      "commandLineArgs": "--wait"
+    }
+  }
+}
