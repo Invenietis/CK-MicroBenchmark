@@ -37,7 +37,7 @@ namespace CK.Core
 
         /// <summary>
         /// The mean absolute deviation (also called average absolute deviation),
-        /// see <see cref="https://en.wikipedia.org/wiki/Average_absolute_deviation"/>/
+        /// see https://en.wikipedia.org/wiki/Average_absolute_deviation.
         /// The mean absolute deviation from the mean is less than or equal to the <see cref="StandardDeviation"/>.
         /// </summary>
         public readonly double MeanAbsoluteDeviation;
@@ -137,6 +137,10 @@ namespace CK.Core
             return MaxTiming < other.MinTiming;
         }
 
+        /// <summary>
+        /// Overridden to return the different measures.
+        /// </summary>
+        /// <returns>A readable string.</returns>
         public override string ToString()
         {
             return $"NormalizedMean: {NormalizedMean}, Min: {MinTiming}, Max: {MaxTiming}, Average: {Average}, StandardDeviation: {StandardDeviation}, {Timings.Count} measures.";
