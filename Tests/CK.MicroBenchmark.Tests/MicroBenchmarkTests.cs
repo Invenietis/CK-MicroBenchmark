@@ -38,7 +38,7 @@ namespace CK.MicroBenchmark.Tests
         }
 
         [Test]
-        public void Benchmarking_CPU_is_less_precise_that_time()
+        public void Benchmarking_CPU_is_less_precise_than_time()
         {
             int Fib( int n )
             {
