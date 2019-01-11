@@ -98,7 +98,7 @@ namespace CK.Core
 
         /// <summary>
         /// Computes a <see cref="BenchmarkResult"/> for an action using time measurements (milli seconds).
-        /// The action will be executed <paramref name="warmupCount"/> + <paramref name="timingCount"/> * <see cref="iterations"/> times
+        /// The action will be executed <paramref name="warmupCount"/> + <paramref name="timingCount"/> * <paramref name="iterations"/> times
         /// </summary>
         /// <param name="action">The code to execute. Can not be null.</param>
         /// <param name="iterations">The number of times action will be executed. Must be at least 1.</param>
@@ -115,7 +115,7 @@ namespace CK.Core
 
         /// <summary>
         /// Computes a <see cref="BenchmarkResult"/> for an action using CPU processing time.
-        /// The action will be executed <paramref name="warmupCount"/> + <paramref name="timingCount"/> * <see cref="iterations"/> times
+        /// The action will be executed <paramref name="warmupCount"/> + <paramref name="timingCount"/> * <paramref name="iterations"/> times
         /// </summary>
         /// <param name="action">The code to execute. Can not be null.</param>
         /// <param name="iterations">The number of times action will be executed. Must be at least 1.</param>
