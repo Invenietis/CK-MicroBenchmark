@@ -30,7 +30,7 @@ namespace CK.MicroBenchmark.Tests
             {
                 return n <= 0 ? n : Fib( n - 1 ) + Fib( n - 2 );
             }
-            BenchmarkResult r1 = CK.Core.MicroBenchmark.MeasureTime( () => Fib( 10 ) );
+            BenchmarkResult r1 = CK.Core.MicroBenchmark.MeasureTime( () => Fib( 9 ) );
             BenchmarkResult r2 = CK.Core.MicroBenchmark.MeasureTime( () => Fib( 11 ) );
             r1.IsBetterThan( r2 ).Should().BeTrue();
             r1.IsSignificantlyBetterThan( r2 ).Should().BeTrue();
