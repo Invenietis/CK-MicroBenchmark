@@ -1,4 +1,3 @@
-#if !NET461
 using NUnit.Common;
 using NUnitLite;
 using System;
@@ -16,4 +15,3 @@ namespace CK.MicroBenchmark.Tests
 
     }
 }
-#endif
