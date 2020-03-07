@@ -135,7 +135,8 @@ namespace CodeCake
                 bool isVSTest = assetsJson.Contains( "Microsoft.NET.Test.Sdk" );
                 foreach( NormalizedPath buildDir in
                     Directory.GetDirectories( binDir )
-                        .Where( p => Directory.EnumerateFiles( p ).Any() )
+                        .Where( p => Directory.EnumerateFiles( p )
+                        .Any() )
                 )
                 {
                     string framework = buildDir.LastPart;
@@ -145,25 +146,11 @@ namespace CodeCake
                     if( isNunitLite )
                     {
                         // Using NUnitLite.
-                        if( isNetFramework && File.Exists( (testBinariesPath = fileWithoutExtension + ".exe") ) )
+                        testBinariesPath = fileWithoutExtension + ".dll";
+                        _globalInfo.Cake.Information( $"Testing via NUnitLite ({framework}): {testBinariesPath}" );
+                        if( !_globalInfo.CheckCommitMemoryKey( testBinariesPath ) )
                         {
-                            _globalInfo.Cake.Information( $"Testing via NUnitLite ({framework}): {testBinariesPath}" );
-                            if( !_globalInfo.CheckCommitMemoryKey( testBinariesPath ) )
-                            {
-                                _globalInfo.Cake.NUnit3( new[] { testBinariesPath }, new NUnit3Settings
-                                {
-                                    Results = new[] { new NUnit3Result() { FileName = FilePath.FromString( projectPath.AppendPart( "TestResult.Net461.xml" ) ) } }
-                                } );
-                            }
-                        }
-                        else
-                        {
-                            testBinariesPath = fileWithoutExtension + ".dll";
-                            _globalInfo.Cake.Information( $"Testing via NUnitLite ({framework}): {testBinariesPath}" );
-                            if( !_globalInfo.CheckCommitMemoryKey( testBinariesPath ) )
-                            {
-                                _globalInfo.Cake.DotNetCoreExecute( testBinariesPath );
-                            }
+                            _globalInfo.Cake.DotNetCoreExecute( testBinariesPath );
                         }
                     }
                     if( isVSTest )
